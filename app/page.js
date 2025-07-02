@@ -6,7 +6,7 @@ export default function HomePage() {
 
   return (
     <main className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold mb-6 text-purple-700">Daniel's Story Blog</h1>
+      <h1 className="text-4xl font-bold mb-6 text-purple-700">Daniel&apos;s Story Blog</h1>
       <p className="text-gray-600 mb-10">Select a story to begin reading:</p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {stories.map((story) => (
