@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import { getChapters } from '@/lib/posts'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function StoryPage({ params }) {
   const { storyId } = params
@@ -16,7 +17,7 @@ export default function StoryPage({ params }) {
   return (
     <main className="max-w-3xl mx-auto p-6 space-y-10">
       {/* Cover Image */}
-      <img src={coverImagePath} alt="Story Cover" className="w-full h-auto rounded-2xl shadow-lg" />
+      <img src={coverImagePath} alt="Story Cover" width = {800} height = {450} className="rounded-2xl shadow-lg" />
 
       {/* Story Summary */}
       <section className="space-y-4">
