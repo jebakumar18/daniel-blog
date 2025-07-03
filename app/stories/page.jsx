@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { getAllStories } from '@/lib/posts'
+import { getAllStories } from '../../lib/posts.server'
 
 export default function StoriesPage() {
   const stories = getAllStories() || []

@@ -1,4 +1,4 @@
-import { getChapterContent } from '@/lib/posts'
+import { getChapterContent } from '../../../../lib/posts.server'
 import { remark } from 'remark'
 import html from 'remark-html'
 import Link from 'next/link'

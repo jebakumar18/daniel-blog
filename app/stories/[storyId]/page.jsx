@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { getChapters } from '@/lib/posts'
+import { getChapters } from '../../../lib/posts.server'
 
 export default function StoryPage({ params }) {
   const { storyId } = params
