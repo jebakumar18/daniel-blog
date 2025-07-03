@@ -6,7 +6,7 @@ export default function HomePage() {
 
   return (
     <main className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold mb-6">📚 Daniel's Story Blog</h1>
+      <h1 className="text-4xl font-bold mb-6">📚 Daniel Story Blog</h1>
 
       {stories.length === 0 ? (
         <p>No stories found. Add folders to <code>/posts</code></p>
