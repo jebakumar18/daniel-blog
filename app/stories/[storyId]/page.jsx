@@ -1,51 +1,30 @@
-import fs from 'fs'
-import path from 'path'
-import { getChapters } from '@/lib/posts'
 import Link from 'next/link'
-import Image from 'next/image'
+import { getChapters } from '@/lib/posts'
 
 export default function StoryPage({ params }) {
   const { storyId } = params
   const chapters = getChapters(storyId)
 
-  // Read summary from summary.txt
-  const summaryPath = path.join(process.cwd(), 'posts', storyId, 'summary.txt')
-  const summary = fs.existsSync(summaryPath) ? fs.readFileSync(summaryPath, 'utf-8') : ''
-
-  const coverImagePath = `/stories/${storyId}/cover.jpg`
+  if (!chapters || chapters.length === 0) {
+    return <p>No chapters found for this story.</p>
+  }
 
   return (
-    <main className="max-w-3xl mx-auto p-6 space-y-10">
-      {/* Cover Image */}
-      <img src={coverImagePath} alt="Story Cover" width = {800} height = {450} className="rounded-2xl shadow-lg" />
+    <main className="p-6 max-w-4xl mx-auto">
+      <h1 className="text-3xl font-bold mb-6">📖 Chapters for: {storyId.replace(/-/g, ' ')}</h1>
 
-      {/* Story Summary */}
-      <section className="space-y-4">
-        <h1 className="text-4xl font-bold capitalize text-purple-800">{storyId.replace(/-/g, ' ')}</h1>
-        <p className="text-gray-700 text-lg whitespace-pre-line">{summary}</p>
-        <Link href={`/stories/${storyId}/${chapters[0].chapterId}`}>
-          <button className="mt-4 px-6 py-3 bg-purple-700 text-white rounded-xl shadow hover:bg-purple-800 transition">
-            📖 Start Reading
-          </button>
-        </Link>
-      </section>
-
-      {/* Chapter List */}
-      <section>
-        <h2 className="text-2xl font-semibold mb-4 text-purple-700">All Chapters</h2>
-        <ul className="space-y-3">
-          {chapters.map((chapter) => (
-            <li key={chapter.chapterId}>
-              <Link href={`/stories/${chapter.storyId}/${chapter.chapterId}`}>
-                <div className="p-4 border rounded-xl hover:bg-purple-50 transition">
-                  <h3 className="text-lg font-semibold">{chapter.title}</h3>
-                  <p className="text-sm text-gray-500">{chapter.date}</p>
-                </div>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
+      <ul className="grid gap-4">
+        {chapters.map((chapter) => (
+          <li key={chapter.id} className="border rounded p-4">
+            <Link
+              href={`/stories/${storyId}/${chapter.id}`}
+              className="text-blue-600 hover:underline font-medium"
+            >
+              {chapter.id.replace(/-/g, ' ')}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </main>
   )
 }
