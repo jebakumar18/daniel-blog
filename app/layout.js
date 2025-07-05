@@ -4,7 +4,7 @@ import Link from 'next/link'
 import './globals.css' // if you use Tailwind or global CSS
 
 export const metadata = {
-  title: "Daniel's Blog",
+  title: "Daniel Blog",
   description: "A new chapter every week",
 }
 
