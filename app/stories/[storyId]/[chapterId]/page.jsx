@@ -53,7 +53,7 @@ export default async function ChapterPage({ params }) {
 
       {/* Chapter Content */}
       <div
-        className="prose prose-invert prose-lg max-w-none text-justify"
+        className="prose prose-invert prose-lg max-w-none text-justify text-black"
         dangerouslySetInnerHTML={{ __html: contentHtml }}
       />
 

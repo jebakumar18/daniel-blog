@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
         <nav className="bg-gray-900 shadow-lg sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <Link href="/" className="text-2xl font-bold text-amber-400 hover:text-amber-300">
-              Daniel J. Durai
+
             </Link>
             <div className="space-x-6 text-lg">
               <Link href="/" className="text-amber-400 hover:text-amber-300">Home</Link>
@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
 
         {/* Footer */}
         <footer className="bg-gray-800 text-gray-400 text-center py-6 mt-16">
-          © {new Date().getFullYear()} Daniel Blog — All rights reserved.
+          © {new Date().getFullYear()} Daniel J. Durai — All rights reserved.
         </footer>
       </body>
     </html>
