@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
 
         {/* Footer */}
         <footer className="bg-gray-800 text-gray-400 text-center py-6 mt-16">
-          © {new Date().getFullYear()} Daniel's Blog — All rights reserved.
+          © {new Date().getFullYear()} Daniel Blog — All rights reserved.
         </footer>
       </body>
     </html>
