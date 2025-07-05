@@ -19,10 +19,10 @@ export default function RootLayout({ children }) {
               Daniel J. Durai
             </Link>
             <div className="space-x-6 text-lg">
-              <Link href="/" className="hover:text-amber-400">Home</Link>
-              <Link href="/stories" className="hover:text-amber-400">Stories</Link>
-              <Link href="/about" className="hover:text-amber-400">About</Link>
-              <Link href="/contact" className="hover:text-amber-400">Contact</Link>
+              <Link href="/" className="text-amber-400 hover:text-amber-300">Home</Link>
+              <Link href="/stories" className="text-amber-400 hover:text-amber-300">Stories</Link>
+              <Link href="/about" className="text-amber-400 hover:text-amber-300">About</Link>
+              <Link href="/contact" className="text-amber-400 hover:text-amber-300">Contact</Link>
             </div>
           </div>
         </nav>

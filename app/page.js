@@ -12,25 +12,36 @@ export default async function HomePage() {
   const stories = await getAllStories()
 
   return (
-    <main className="min-h-screen bg-gradient-to-tr from-gray-950 via-gray-900 to-indigo-950 text-white py-12 px-6 font-sans">
-      <h1 className="text-5xl font-extrabold mb-8 text-center">
+    <main className="min-h-screen bg-gradient-to-tr from-gray-950 via-gray-900 to-indigo-950 text-white py-12 px-4 sm:px-6 md:px-8 font-sans">
+      {/* Headline */}
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 text-center tracking-tight leading-snug">
         Welcome to Daniel Blog
       </h1>
 
-      <p className="text-center text-gray-400 text-lg mb-12">
-        Dive into our weekly Novel | Select the tale to unfurl !
-        <Link href="/stories" className="text-amber-400 hover:text-amber-300 transition-colors duration-200 hover:underline block text-center mt-10">
-          View Full Novel Library
-        </Link>
+      {/* Subheading */}
+      <p className="text-center text-gray-300 mb-10 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+        Dive into our weekly Novel | Select the tale to unfurl!
       </p>
 
-      <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      {/* View Full Library CTA */}
+      <div className="text-center mb-12">
+        <Link
+          href="/stories"
+          className="text-amber-400 hover:text-amber-300 text-sm sm:text-base transition duration-200 hover:underline"
+        >
+          📚 View Full Novel Library
+        </Link>
+      </div>
+
+      {/* Stories Grid */}
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {stories.map((story) => (
           <li
             key={story.id}
-            className="bg-gray-800 p-7 rounded-xl shadow-xl hover:scale-[1.03] hover:shadow-2xl transition-all duration-300 ease-in-out border border-gray-700"
+            className="bg-gray-800 p-5 sm:p-6 rounded-xl shadow-md hover:scale-[1.03] hover:shadow-2xl transition-all duration-300 border border-gray-700"
           >
-            <h2 className="text-2xl font-semibold text-yellow-300 mb-2">
+            {/* Story Title */}
+            <h2 className="text-xl sm:text-2xl font-semibold mb-2">
               <Link
                 href={`/stories/${story.id}`}
                 className="text-amber-400 hover:text-amber-300 transition-colors duration-200"
@@ -38,7 +49,13 @@ export default async function HomePage() {
                 {formatTitle(story.title)}
               </Link>
             </h2>
-            <p className="mt-2 text-gray-400">{story.summary}</p>
+
+            {/* Story Summary */}
+            {story.summary && (
+              <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                {story.summary}
+              </p>
+            )}
           </li>
         ))}
       </ul>
